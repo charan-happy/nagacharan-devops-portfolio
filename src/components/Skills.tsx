@@ -1,60 +1,107 @@
+"use client";
+
 export function Skills() {
   const skillCategories = [
     {
       title: "Containerization & Orchestration",
-      skills: ["Kubernetes", "Docker", "Helm", "Kustomize"],
-      icon: "☸️"
+      skills: ["Kubernetes", "Docker", "Helm", "Kustomize", "EKS", "Kubespray"],
+      icon: "☸️",
+      color: "from-blue-500 to-cyan-500"
     },
     {
       title: "Cloud & Infrastructure",
-      skills: ["AWS", "Azure", "GCP", "Terraform", "Pulumi"],
-      icon: "☁️"
+      skills: ["AWS", "Azure", "GCP", "Terraform", "Pulumi", "CloudFormation"],
+      icon: "☁️",
+      color: "from-orange-500 to-yellow-500"
     },
     {
-      title: "CI/CD & Automation",
+      title: "CI/CD & DevOps",
       skills: ["GitHub Actions", "GitLab CI", "Jenkins", "ArgoCD", "Tekton"],
-      icon: "🔄"
+      icon: "🔄",
+      color: "from-purple-500 to-pink-500"
     },
     {
       title: "Observability",
-      skills: ["Prometheus", "Grafana", "ELK Stack", "Jaeger", "Datadog"],
-      icon: "📊"
+      skills: ["Prometheus", "Grafana", "ELK Stack", "Jaeger", "Datadog", "Sentry"],
+      icon: "📊",
+      color: "from-emerald-500 to-teal-500"
     },
     {
-      title: "Programming",
-      skills: ["Python", "Go", "Bash", "JavaScript", "YAML"],
-      icon: "💻"
+      title: "Infrastructure & Networking",
+      skills: ["Nginx", "Load Balancing", "VPN", "DNS", "CDN", "VPC"],
+      icon: "🌐",
+      color: "from-slate-500 to-slate-600"
     },
     {
-      title: "DevOps Tools",
-      skills: ["Ansible", "Nginx", "Linux", "Git", "PM2"],
-      icon: "🛠️"
+      title: "Programming & Scripting",
+      skills: ["Python", "Go", "Bash", "JavaScript", "YAML", "Groovy"],
+      icon: "💻",
+      color: "from-amber-500 to-orange-500"
+    }
+  ];
+
+  const certifications = [
+    {
+      name: "Certified Kubernetes Administrator (CKA)",
+      issuer: "The Linux Foundation",
+      year: "2025",
+      badge: "🏆"
     }
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
+    <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-          Technical <span className="text-emerald-400">Skills</span>
-        </h2>
-        <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-          A comprehensive toolkit for building, deploying, and maintaining cloud-native applications
-        </p>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Technical <span className="text-emerald-400">Skills</span>
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">
+            A comprehensive toolkit for building, deploying, and maintaining cloud-native applications at scale
+          </p>
+        </div>
+
+        {/* Certification Badge */}
+        <div className="flex justify-center mb-12">
+          {certifications.map((cert) => (
+            <div
+              key={cert.name}
+              className="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-500/30 rounded-2xl p-6 flex items-center gap-4"
+            >
+              <span className="text-4xl">{cert.badge}</span>
+              <div>
+                <h3 className="text-lg font-bold text-white">{cert.name}</h3>
+                <p className="text-amber-400 text-sm">{cert.issuer} • {cert.year}</p>
+              </div>
+              <a
+                href="https://www.credly.com/badges/70a41aa8-c939-4a5b-95a7-4bc65fe40f99/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-4 text-slate-400 hover:text-white text-sm underline"
+              >
+                Verify →
+              </a>
+            </div>
+          ))}
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category) => (
             <div
               key={category.title}
-              className="bg-slate-800 border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/50 transition-all hover:transform hover:scale-[1.02]"
+              className="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/30 transition-all hover:transform hover:scale-[1.02] group"
             >
-              <div className="text-3xl mb-4">{category.icon}</div>
-              <h3 className="text-lg font-semibold text-white mb-3">{category.title}</h3>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-2xl">{category.icon}</span>
+                <h3 className="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                  {category.title}
+                </h3>
+              </div>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="bg-slate-700/50 text-slate-300 px-3 py-1 rounded-full text-sm font-medium"
+                    className="bg-slate-700/50 text-slate-300 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-slate-600/50 transition-colors cursor-default"
                   >
                     {skill}
                   </span>

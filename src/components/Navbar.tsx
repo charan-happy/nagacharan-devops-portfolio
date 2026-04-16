@@ -6,7 +6,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-700">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="text-xl font-bold text-emerald-400">
@@ -20,6 +20,9 @@ export function Navbar() {
             <a href="#skills" className="text-slate-300 hover:text-white transition-colors text-sm">
               Skills
             </a>
+            <a href="#value" className="text-slate-300 hover:text-white transition-colors text-sm">
+              What I Bring
+            </a>
             <a href="#experience" className="text-slate-300 hover:text-white transition-colors text-sm">
               Experience
             </a>
@@ -27,7 +30,7 @@ export function Navbar() {
               Projects
             </a>
             <a href="#contact" className="bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2 rounded-lg font-semibold transition-colors text-sm">
-              Contact Me
+              Contact
             </a>
           </div>
 
@@ -50,9 +53,10 @@ export function Navbar() {
           <div className="md:hidden pb-4 flex flex-col gap-3">
             <a href="#about" onClick={() => setOpen(false)} className="text-slate-300 hover:text-white text-sm py-1">About</a>
             <a href="#skills" onClick={() => setOpen(false)} className="text-slate-300 hover:text-white text-sm py-1">Skills</a>
+            <a href="#value" onClick={() => setOpen(false)} className="text-slate-300 hover:text-white text-sm py-1">What I Bring</a>
             <a href="#experience" onClick={() => setOpen(false)} className="text-slate-300 hover:text-white text-sm py-1">Experience</a>
             <a href="#projects" onClick={() => setOpen(false)} className="text-slate-300 hover:text-white text-sm py-1">Projects</a>
-            <a href="#contact" className="bg-emerald-500 text-white px-5 py-2 rounded-lg font-semibold text-sm text-center">Contact Me</a>
+            <a href="#contact" className="bg-emerald-500 text-white px-5 py-2 rounded-lg font-semibold text-sm text-center">Contact</a>
           </div>
         )}
       </div>

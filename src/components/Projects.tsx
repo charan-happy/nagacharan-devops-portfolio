@@ -1,8 +1,10 @@
+"use client";
+
 export function Projects() {
   const projects = [
     {
       name: "HealOps",
-      description: "A comprehensive internal DevOps platform built to streamline deployment, monitoring, and infrastructure management for engineering teams.",
+      description: "A comprehensive internal DevOps platform built to streamline deployment, monitoring, and infrastructure management for engineering teams at GeekyAnts.",
       tech: ["Kubernetes", "AWS EKS", "Next.js", "PostgreSQL", "Redis", "ArgoCD", "Prometheus", "Grafana"],
       link: "https://healops.online",
       stats: [
@@ -34,23 +36,39 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
+    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-          Featured <span className="text-emerald-400">Projects</span>
-        </h2>
-        <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-          Production-grade applications I've built and maintained
-        </p>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Featured <span className="text-emerald-400">Projects</span>
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">
+            Production-grade applications I've built and maintained
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div
               key={project.name}
-              className="bg-slate-800 border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/50 transition-all hover:transform hover:scale-[1.02] flex flex-col"
+              className="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/30 transition-all hover:transform hover:scale-[1.02] flex flex-col group"
             >
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-white mb-2">{project.name}</h3>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                    {project.name}
+                  </h3>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-white transition-colors"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
                 <p className="text-slate-400 mb-4">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -62,7 +80,7 @@ export function Projects() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 mb-4 py-4 border-t border-slate-700">
+              <div className="grid grid-cols-3 gap-4 py-4 border-t border-slate-700">
                 {project.stats.map((stat) => (
                   <div key={stat.label} className="text-center">
                     <div className="text-lg font-bold text-emerald-400">{stat.value}</div>
@@ -75,7 +93,7 @@ export function Projects() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center bg-emerald-500 hover:bg-emerald-600 text-white py-3 rounded-xl font-semibold transition-colors"
+                className="block text-center bg-slate-700 hover:bg-emerald-600 text-white py-3 rounded-xl font-semibold transition-colors"
               >
                 View Live →
               </a>

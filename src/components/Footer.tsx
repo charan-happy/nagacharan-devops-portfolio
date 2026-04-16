@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="py-10 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+    <footer className="py-10 px-4 sm:px-6 lg:px-8 border-t border-slate-800 bg-slate-900/50">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-center md:text-left">
@@ -41,7 +41,7 @@ export function Footer() {
         </div>
         
         <div className="mt-6 text-center text-slate-500 text-sm">
-          © {new Date().getFullYear()} Nagacharan G. Built with Next.js & Tailwind CSS.
+          © {new Date().getFullYear()} Nagacharan G. DevOps Engineer II @ GeekyAnts. All rights reserved.
         </div>
       </div>
     </footer>
