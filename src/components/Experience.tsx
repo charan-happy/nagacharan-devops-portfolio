@@ -6,79 +6,57 @@ export function Experience() {
       company: "GeekyAnts",
       role: "DevOps Engineer II",
       period: "Sep 2025 - Present",
-      location: "Bangalore, India",
-      description: "Building and maintaining cloud infrastructure for production applications",
       highlights: [
-        "Built HealOps - internal DevOps platform for deployment, monitoring & infrastructure management",
-        "Managing production Kubernetes clusters on AWS EKS serving 50+ engineers",
-        "Implemented GitOps with ArgoCD for automated deployments",
-        "Set up observability stack with Prometheus, Grafana, and ELK"
+        "Built HealOps - internal DevOps platform for deployment & monitoring",
+        "Managing AWS EKS clusters serving 50+ engineers",
+        "Implemented GitOps with ArgoCD for automated deployments"
       ]
     },
     {
       company: "Infosys",
       role: "System Engineer",
       period: "Feb 2022 - Sep 2025",
-      location: "Bangalore, India",
-      description: "Started as Systems Associate, promoted to System Engineer",
       highlights: [
         "Managed enterprise AWS infrastructure with 99.9% uptime",
         "Implemented Infrastructure as Code using Terraform",
-        "Automated deployment processes reducing deployment time by 60%",
-        "Led migration from monolithic to microservices architecture"
+        "Reduced deployment time by 60% through automation"
       ]
     }
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
-      <div className="max-w-4xl mx-auto">
+    <section id="experience" className="py-24 bg-slate-800">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Work <span className="text-emerald-400">Experience</span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            My journey building scalable infrastructure
-          </p>
         </div>
 
         <div className="relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-slate-700 to-slate-800" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-500 to-slate-800" />
 
-          {experiences.map((exp, index) => (
-            <div
-              key={exp.company}
-              className={`relative flex flex-col md:flex-row gap-8 mb-12 ${
-                index % 2 === 0 ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              <div className="flex-1">
-                <div className={`bg-slate-800/50 border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/30 transition-all ${
-                  index % 2 === 0 ? "md:text-left" : "md:text-right"
-                }`}>
-                  <div className="flex items-center gap-2 mb-2 justify-center md:justify-start">
-                    <span className="text-emerald-400 font-medium">{exp.period}</span>
-                    <span className="text-slate-600">•</span>
-                    <span className="text-slate-500 text-sm">{exp.location}</span>
+          {experiences.map((exp, idx) => (
+            <div key={exp.company} className={`relative flex gap-8 mb-12 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+              <div className="flex-1 pl-12 md:pl-0">
+                <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 hover:border-emerald-500/30 transition-all">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-emerald-400 font-semibold">{exp.period}</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-                  <p className="text-lg text-emerald-400 mb-2">{exp.company}</p>
-                  <p className="text-slate-400 text-sm mb-4">{exp.description}</p>
+                  <p className="text-emerald-400 mb-4">{exp.company}</p>
                   <ul className="space-y-2">
-                    {exp.highlights.map((highlight) => (
-                      <li key={highlight} className="text-slate-400 text-sm flex items-start gap-2 justify-center md:justify-start">
-                        <span className="text-emerald-500 mt-1 flex-shrink-0">▹</span>
-                        {highlight}
+                    {exp.highlights.map((h) => (
+                      <li key={h} className="text-slate-400 text-sm flex items-start gap-2">
+                        <span className="text-emerald-500 mt-1">▹</span>{h}
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
-
-              <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 mt-6">
-                <div className="w-4 h-4 bg-emerald-500 rounded-full border-4 border-slate-900" />
+              <div className="absolute left-4 transform -translate-x-1/2 mt-4">
+                <div className="w-3 h-3 bg-emerald-500 rounded-full" />
               </div>
-
               <div className="flex-1 hidden md:block" />
             </div>
           ))}
